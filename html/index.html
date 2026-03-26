@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <title>Max Morén</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #f7f5f2;
+        --surface: #efecea;
+        --border: #dedad5;
+        --text: #1a1816;
+        --muted: #8a847c;
+        --accent: #2a52a0;
+        --font-serif: "Lora", Georgia, serif;
+        --font-mono: "Geist Mono", monospace;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-serif);
+        font-size: 16px;
+        line-height: 1.7;
+        min-height: 100vh;
+      }
+
+      .wrapper {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 80px 32px 64px;
+      }
+
+      /* ── Nav ── */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 96px;
+        opacity: 0;
+        animation: up 0.5s ease 0.05s forwards;
+      }
+      nav .name {
+        font-family: var(--font-serif);
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 28px;
+      }
+      nav a {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: none;
+        letter-spacing: 0.03em;
+        transition: color 0.15s;
+      }
+      nav a:hover {
+        color: var(--text);
+      }
+
+      /* ── Hero ── */
+      .hero {
+        margin-bottom: 72px;
+        opacity: 0;
+        animation: up 0.5s ease 0.15s forwards;
+      }
+      .hero h1 {
+        font-size: clamp(32px, 5vw, 44px);
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 20px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--muted);
+      }
+      .hero p {
+        font-size: 17px;
+        color: var(--muted);
+        max-width: 480px;
+        font-weight: 400;
+      }
+
+      /* ── Section ── */
+      .section {
+        margin-bottom: 56px;
+        opacity: 0;
+        animation: up 0.5s ease forwards;
+      }
+      .section:nth-of-type(1) {
+        animation-delay: 0.25s;
+      }
+      .section:nth-of-type(2) {
+        animation-delay: 0.35s;
+      }
+      .section:nth-of-type(3) {
+        animation-delay: 0.45s;
+      }
+
+      .section-title {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 24px;
+      }
+
+      /* ── Rows ── */
+      .item {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.15s;
+      }
+      .item:first-of-type {
+        border-top: 1px solid var(--border);
+      }
+
+      .item-left {
+        flex: 1;
+      }
+      .item-name {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text);
+        transition: color 0.15s;
+      }
+      a.item:hover .item-name {
+        color: var(--accent);
+      }
+      .item-desc {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .item-arrow {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--border);
+        transition:
+          color 0.15s,
+          transform 0.15s;
+        flex-shrink: 0;
+      }
+      a.item:hover .item-arrow {
+        color: var(--accent);
+        transform: translateX(3px);
+      }
+
+      .item-placeholder {
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      /* ── About ── */
+      .about p {
+        font-size: 16px;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+      .about p:last-child {
+        margin-bottom: 0;
+      }
+      .about a {
+        color: var(--text);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* ── Footer ── */
+      footer {
+        margin-top: 96px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--muted);
+        opacity: 0;
+        animation: up 0.5s ease 0.55s forwards;
+      }
+      footer a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+      footer a:hover {
+        color: var(--text);
+      }
+
+      @keyframes up {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── Dark mode ── */
+      body.dark {
+        --bg: #111210;
+        --surface: #191917;
+        --border: #252420;
+        --text: #e8e4de;
+        --muted: #6b6760;
+        --accent: #7a9fd4;
+      }
+
+      #theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: var(--muted);
+        padding: 0;
+        margin-left: 20px;
+        transition: color 0.15s;
+        line-height: 1;
+      }
+      #theme-toggle:hover {
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <span class="name">Max Morén</span>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <button id="theme-toggle" aria-label="Toggle dark mode">◑</button>
+        </ul>
+      </nav>
+
+      <header class="hero">
+        <!--
+        <h1>Header<br />
+        <em>Whatever.</em></h1>
+        -->
+        <p>Whatever public I'm hosting will appear here.</p>
+      </header>
+
+      <section class="section" id="services">
+        <div class="section-title">Services</div>
+
+        <a
+          class="item"
+          href="https://map.macks.duckdns.org"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="item-left">
+            <div class="item-name">BlueMap</div>
+            <div class="item-desc">Live 3D map of my Minecraft server</div>
+          </div>
+          <span class="item-arrow">↗</span>
+        </a>
+
+        <!-- Add more services here, same pattern:
+    <a class="item" href="..." target="_blank" rel="noopener">
+      <div class="item-left">
+        <div class="item-name">Name</div>
+        <div class="item-desc">Description</div>
+      </div>
+      <span class="item-arrow">↗</span>
+    </a>
+    -->
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-title">Projects</div>
+
+        <div class="item item-placeholder">
+          <div class="item-left">
+            <div class="item-name">Coming soon</div>
+            <div class="item-desc">
+              Portfolio projects whenever I make something bigger, blank for
+              now.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="section-title">About</div>
+        <p>Blank for now, and yes I will get a proper domain at some point.</p>
+        <p>
+          Reach me at
+          <a
+            href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#111;&#114;&#101;&#110;&#46;&#109;&#97;&#120;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
+          >
+            &#109;&#111;&#114;&#101;&#110;&#46;&#109;&#97;&#120;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109; </a
+          >.
+        </p>
+      </section>
+
+      <footer>
+        <span>macks.duckdns.org</span>
+        <span>Sweden</span>
+      </footer>
+    </div>
+    <script>
+      const btn = document.getElementById("theme-toggle");
+      if (localStorage.getItem("theme") === "dark")
+        document.body.classList.add("dark");
+      btn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          document.body.classList.contains("dark") ? "dark" : "light",
+        );
+      });
+    </script>
+  </body>
+</html>
