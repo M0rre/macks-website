@@ -10,9 +10,7 @@
       rel="stylesheet"
     />
     <style>
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -25,12 +23,10 @@
         --text: #1a1816;
         --muted: #8a847c;
         --accent: #2a52a0;
-        --accent2: #5a8a3c;
-        /* grass green */
+        --accent2: #5a8a3c; /* grass green */
         --font-serif: "Lora", Georgia, serif;
         --font-mono: "Geist Mono", monospace;
-        --pixel: 2px;
-        /* pixel border thickness */
+        --pixel: 2px; /* pixel border thickness */
       }
 
       body {
@@ -71,31 +67,24 @@
         opacity: 0;
         animation: up 0.5s ease 0.05s forwards;
       }
-
       nav .name {
         font-family: var(--font-serif);
         font-size: 15px;
         font-weight: 500;
         letter-spacing: 0.01em;
       }
-
       nav .name a {
         color: inherit;
         text-decoration: none;
         transition: color 0.15s;
       }
-
-      nav .name a:hover {
-        color: var(--accent);
-      }
-
+      nav .name a:hover { color: var(--accent); }
       nav ul {
         list-style: none;
         display: flex;
         gap: 28px;
         align-items: baseline;
       }
-
       nav a {
         font-family: var(--font-mono);
         font-size: 12px;
@@ -104,10 +93,7 @@
         letter-spacing: 0.03em;
         transition: color 0.15s;
       }
-
-      nav a:hover {
-        color: var(--text);
-      }
+      nav a:hover { color: var(--text); }
 
       /* ── Hero ── */
       .hero {
@@ -115,7 +101,6 @@
         opacity: 0;
         animation: up 0.5s ease 0.15s forwards;
       }
-
       .hero h1 {
         font-size: clamp(32px, 5vw, 44px);
         font-weight: 400;
@@ -123,12 +108,10 @@
         letter-spacing: -0.02em;
         margin-bottom: 20px;
       }
-
       .hero h1 em {
         font-style: italic;
         color: var(--muted);
       }
-
       .hero p {
         font-size: 17px;
         color: var(--muted);
@@ -149,13 +132,11 @@
         color: var(--muted);
         flex-wrap: wrap;
       }
-
       .status-item {
         display: flex;
         align-items: center;
         gap: 7px;
       }
-
       .status-dot {
         width: 7px;
         height: 7px;
@@ -164,38 +145,20 @@
         /* pixel square instead of circle */
         border-radius: 0;
       }
-
       .status-dot.online {
         background: var(--accent2);
-        box-shadow: 0 0 6px rgba(90, 138, 60, 0.5);
+        box-shadow: 0 0 6px rgba(90,138,60,0.5);
         animation: pulse 2.5s ease-in-out infinite;
       }
-
       .status-dot.offline {
         background: #c0392b;
       }
-
       @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-
-        50% {
-          opacity: 0.4;
-        }
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
       }
-
-      #player-count {
-        color: var(--text);
-        font-weight: 500;
-      }
-
-      #server-ip {
-        color: var(--text);
-        font-weight: 500;
-      }
-
+      #player-count { color: var(--text); font-weight: 500; }
+      #server-ip    { color: var(--text); font-weight: 500; }
       .copy-btn {
         background: none;
         border: 1px solid var(--border);
@@ -207,16 +170,8 @@
         transition: all 0.15s;
         border-radius: 0;
       }
-
-      .copy-btn:hover {
-        color: var(--text);
-        border-color: var(--muted);
-      }
-
-      .copy-btn.copied {
-        color: var(--accent2);
-        border-color: var(--accent2);
-      }
+      .copy-btn:hover { color: var(--text); border-color: var(--muted); }
+      .copy-btn.copied { color: var(--accent2); border-color: var(--accent2); }
 
       /* ── Map container ── */
       .map-section {
@@ -224,7 +179,6 @@
         opacity: 0;
         animation: up 0.5s ease 0.22s forwards;
       }
-
       .section-title {
         font-family: var(--font-mono);
         font-size: 11px;
@@ -243,17 +197,14 @@
         overflow: hidden;
         background: var(--surface);
       }
-
       .map-wrapper iframe {
         width: 100%;
         height: 100%;
         border: none;
         display: block;
         /* scale trick: show more map, less scrollbars */
-        pointer-events: none;
-        /* disabled in preview mode */
+        pointer-events: none; /* disabled in preview mode */
       }
-
       /* Fullscreen overlay — applied to a clone teleported to <body> */
       .map-fullscreen {
         position: fixed !important;
@@ -266,7 +217,6 @@
         box-shadow: none !important;
         margin: 0 !important;
       }
-
       .map-fullscreen iframe {
         pointer-events: all !important;
       }
@@ -278,16 +228,13 @@
         left: 12px;
         font-family: var(--font-mono);
         font-size: 10px;
-        color: rgba(255, 255, 255, 0.7);
-        background: rgba(0, 0, 0, 0.45);
+        color: rgba(255,255,255,0.7);
+        background: rgba(0,0,0,0.45);
         padding: 3px 8px;
         pointer-events: none;
         letter-spacing: 0.08em;
       }
-
-      .map-fullscreen .map-overlay {
-        display: none;
-      }
+      .map-fullscreen .map-overlay { display: none; }
 
       /* expand button */
       .map-expand-btn {
@@ -296,51 +243,44 @@
         right: 10px;
         width: 30px;
         height: 30px;
-        background: rgba(0, 0, 0, 0.55);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0,0,0,0.55);
+        border: 1px solid rgba(255,255,255,0.2);
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: background 0.15s;
         z-index: 10;
-        color: rgba(255, 255, 255, 0.85);
+        color: rgba(255,255,255,0.85);
         font-size: 14px;
         border-radius: 0;
       }
-
-      .map-expand-btn:hover {
-        background: rgba(0, 0, 0, 0.8);
-      }
+      .map-expand-btn:hover { background: rgba(0,0,0,0.8); }
 
       /* close button — lives inside map-wrapper, only shown when expanded */
       .map-close-btn {
         display: none;
         position: absolute;
-        top: 45px;
-        right: 8px;
+        top: 12px;
+        right: 12px;
         z-index: 99999;
-        width: 32px;
-        height: 32px;
-        background: rgba(0, 0, 0, 0.75);
-        border: 1px solid rgba(255, 255, 255, 0.35);
+        width: 36px;
+        height: 36px;
+        background: rgba(0,0,0,0.75);
+        border: 1px solid rgba(255,255,255,0.35);
         cursor: pointer;
         align-items: center;
         justify-content: center;
-        color: rgba(255, 255, 255, 0.9);
+        color: rgba(255,255,255,0.9);
         font-size: 18px;
         border-radius: 0;
         transition: background 0.15s;
         pointer-events: all;
       }
+      .map-close-btn:hover { background: rgba(0,0,0,0.95); }
+      .map-close-btn.visible { display: flex; }
 
-      .map-close-btn:hover {
-        background: rgba(0, 0, 0, 0.95);
-      }
 
-      .map-close-btn.visible {
-        display: flex;
-      }
 
       /* ── Sections ── */
       .section {
@@ -348,18 +288,9 @@
         opacity: 0;
         animation: up 0.5s ease forwards;
       }
-
-      .section:nth-of-type(1) {
-        animation-delay: 0.32s;
-      }
-
-      .section:nth-of-type(2) {
-        animation-delay: 0.42s;
-      }
-
-      .section:nth-of-type(3) {
-        animation-delay: 0.52s;
-      }
+      .section:nth-of-type(1) { animation-delay: 0.32s; }
+      .section:nth-of-type(2) { animation-delay: 0.42s; }
+      .section:nth-of-type(3) { animation-delay: 0.52s; }
 
       /* ── Item rows ── */
       .item {
@@ -373,57 +304,35 @@
         color: inherit;
         transition: color 0.15s;
       }
-
-      .item:first-of-type {
-        border-top: 1px solid var(--border);
-      }
-
-      .item-left {
-        flex: 1;
-      }
-
+      .item:first-of-type { border-top: 1px solid var(--border); }
+      .item-left { flex: 1; }
       .item-name {
         font-size: 15px;
         font-weight: 500;
         color: var(--text);
         transition: color 0.15s;
       }
-
-      a.item:hover .item-name {
-        color: var(--accent);
-      }
-
+      a.item:hover .item-name { color: var(--accent); }
       .item-desc {
         font-family: var(--font-mono);
         font-size: 12px;
         color: var(--muted);
         margin-top: 2px;
       }
-
       .item-arrow {
         font-family: var(--font-mono);
         font-size: 12px;
         color: var(--border);
-        transition:
-          color 0.15s,
-          transform 0.15s;
+        transition: color 0.15s, transform 0.15s;
         flex-shrink: 0;
       }
-
-      a.item:hover .item-arrow {
-        color: var(--accent);
-        transform: translateX(3px);
-      }
+      a.item:hover .item-arrow { color: var(--accent); transform: translateX(3px); }
 
       /* ── FAQ ── */
       .faq-item {
         border-bottom: 1px solid var(--border);
       }
-
-      .faq-item:first-of-type {
-        border-top: 1px solid var(--border);
-      }
-
+      .faq-item:first-of-type { border-top: 1px solid var(--border); }
       .faq-q {
         display: flex;
         justify-content: space-between;
@@ -435,11 +344,7 @@
         user-select: none;
         gap: 16px;
       }
-
-      .faq-q:hover {
-        color: var(--accent);
-      }
-
+      .faq-q:hover { color: var(--accent); }
       .faq-icon {
         font-family: var(--font-mono);
         font-size: 16px;
@@ -447,11 +352,7 @@
         flex-shrink: 0;
         transition: transform 0.2s;
       }
-
-      .faq-item.open .faq-icon {
-        transform: rotate(45deg);
-      }
-
+      .faq-item.open .faq-icon { transform: rotate(45deg); }
       .faq-a {
         font-family: var(--font-mono);
         font-size: 12px;
@@ -459,25 +360,16 @@
         line-height: 1.7;
         max-height: 0;
         overflow: hidden;
-        transition:
-          max-height 0.3s ease,
-          padding 0.2s;
+        transition: max-height 0.3s ease, padding 0.2s;
         padding-bottom: 0;
       }
-
       .faq-item.open .faq-a {
         max-height: 300px;
         padding-bottom: 14px;
       }
-
       /* grass-green accent on open */
-      .faq-item.open .faq-q {
-        color: var(--accent2);
-      }
-
-      .faq-item.open .faq-icon {
-        color: var(--accent2);
-      }
+      .faq-item.open .faq-q { color: var(--accent2); }
+      .faq-item.open .faq-icon { color: var(--accent2); }
 
       /* ── About ── */
       .about p {
@@ -485,11 +377,7 @@
         color: var(--muted);
         margin-bottom: 14px;
       }
-
-      .about p:last-child {
-        margin-bottom: 0;
-      }
-
+      .about p:last-child { margin-bottom: 0; }
       .about a {
         color: var(--text);
         text-decoration: underline;
@@ -511,26 +399,12 @@
         opacity: 0;
         animation: up 0.5s ease 0.62s forwards;
       }
-
-      footer a {
-        color: var(--muted);
-        text-decoration: none;
-      }
-
-      footer a:hover {
-        color: var(--text);
-      }
+      footer a { color: var(--muted); text-decoration: none; }
+      footer a:hover { color: var(--text); }
 
       @keyframes up {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(10px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
 
       /* ── Dark mode ── */
@@ -555,10 +429,7 @@
         transition: color 0.15s;
         line-height: 1;
       }
-
-      #theme-toggle:hover {
-        color: var(--text);
-      }
+      #theme-toggle:hover { color: var(--text); }
 
       /* ── Grass-block decorative rule ── */
       .grass-rule {
@@ -569,18 +440,17 @@
           to right,
           var(--accent2) 0px,
           var(--accent2) 4px,
-          #8b6914 4px,
-          #8b6914 8px
+          #8B6914 4px,
+          #8B6914 8px
         );
         opacity: 0.35;
       }
     </style>
   </head>
-
   <body>
     <div class="wrapper">
       <nav>
-        <span class="name"><a href="/">Max Morén</a></span>
+        <span class="name">Max Morén</span>
         <ul>
           <li><a href="#map">Map</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -593,14 +463,10 @@
         <h1>The server.<br /><em>Come build something.</em></h1>
         <p>A survival Minecraft server. The map is live, the door is open.</p>
 
-        <div class="status-bar pixel-border" style="margin-top: 20px">
+        <div class="status-bar pixel-border" style="margin-top:20px;">
           <div class="status-item">
             <div class="status-dot" id="status-dot"></div>
-            <span
-              id="status-text"
-              style="font-family: var(--font-mono); font-size: 12px"
-              >checking…</span
-            >
+            <span id="status-text" style="font-family:var(--font-mono);font-size:12px;">checking…</span>
           </div>
           <div class="status-item">
             <span>players:</span>
@@ -619,51 +485,21 @@
         <div class="section-title">Live Map</div>
         <div class="map-wrapper pixel-border" id="map-wrapper">
           <!-- iframe is injected by JS only when expanded, so nothing is clickable in preview -->
-          <div
-            id="map-preview"
-            style="
-              position: absolute;
-              inset: 0;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              gap: 10px;
-              cursor: pointer;
-              background: linear-gradient(160deg, #1a2a1a 0%, #0d1a0d 100%);
-            "
-          >
-            <span style="font-size: 32px; opacity: 0.4">🗺</span>
-            <span
-              style="
-                font-family: var(--font-mono);
-                font-size: 11px;
-                color: rgba(255, 255, 255, 0.35);
-                letter-spacing: 0.1em;
-              "
-              >LIVE MAP · CLICK TO EXPLORE</span
-            >
+          <div id="map-preview" style="
+            position:absolute;inset:0;
+            display:flex;flex-direction:column;
+            align-items:center;justify-content:center;
+            gap:10px;cursor:pointer;
+            background: linear-gradient(160deg, #1a2a1a 0%, #0d1a0d 100%);
+          ">
+            <span style="font-size:32px;opacity:0.4;">🗺</span>
+            <span style="font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.1em;">LIVE MAP · CLICK TO EXPLORE</span>
           </div>
           <div class="map-overlay">live · bluemap</div>
-          <button
-            class="map-expand-btn"
-            id="expand-btn"
-            aria-label="Expand map"
-          >
-            ⤢
-          </button>
-          <button class="map-close-btn" id="close-btn" aria-label="Close map">
-            ✕
-          </button>
+          <button class="map-expand-btn" id="expand-btn" aria-label="Expand map">⤢</button>
+          <button class="map-close-btn" id="close-btn" aria-label="Close map">✕</button>
         </div>
-        <p
-          style="
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--muted);
-            margin-top: 10px;
-          "
-        >
+        <p style="font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:10px;">
           Press ⤢ to go fullscreen and interact. Press Escape or ✕ to return.
         </p>
       </div>
@@ -674,51 +510,24 @@
         <div class="section-title">FAQ</div>
 
         <div class="faq-item">
-          <div class="faq-q">
-            How do I join? <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            Add <strong>macks.duckdns.org</strong> as a server in Minecraft Java
-            Edition. No whitelist — just connect and play. Make sure you're on a
-            recent version.
-          </div>
+          <div class="faq-q">How do I join? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Add <strong>macks.duckdns.org</strong> as a server in Minecraft Java Edition. No whitelist — just connect and play. Make sure you're on a recent version.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">
-            Is it always online? <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            The server runs on home hardware, so it's online most of the time
-            but not guaranteed 24/7. The status indicator above reflects the
-            live state.
-          </div>
+          <div class="faq-q">Is it always online? <span class="faq-icon">+</span></div>
+          <div class="faq-a">The server runs on home hardware, so it's online most of the time but not guaranteed 24/7. The status indicator above reflects the live state.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">
-            What mods or plugins are running? <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            It's a Fabric server. BlueMap runs for the live map. Everything else
-            is kept light — ask in-game for specifics.
-          </div>
+          <div class="faq-q">What mods or plugins are running? <span class="faq-icon">+</span></div>
+          <div class="faq-a">It's a Fabric server. BlueMap runs for the live map. Everything else is kept light — ask in-game for specifics.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">
-            Are there any rules? <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            Keep it decent. No griefing, no stealing, no being a nuisance. It's
-            a small server — common sense applies.
-          </div>
+          <div class="faq-q">Are there any rules? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Keep it decent. No griefing, no stealing, no being a nuisance. It's a small server — common sense applies.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">
-            Can I claim land? <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            No formal claim system — just build somewhere sensible and respect
-            what others have made. The map makes it easy to find empty space.
-          </div>
+          <div class="faq-q">Can I claim land? <span class="faq-icon">+</span></div>
+          <div class="faq-a">No formal claim system — just build somewhere sensible and respect what others have made. The map makes it easy to find empty space.</div>
         </div>
       </section>
 
@@ -726,36 +535,17 @@
       <section class="section about" id="about">
         <div class="grass-rule"></div>
         <div class="section-title">About</div>
-        <p>
-          Personal survival server, running out of Sweden. Started as a place to
-          mess around, now it has roads and stuff.
-        </p>
+        <p>Personal survival server, running out of Sweden. Started as a place to mess around, now it has roads and stuff.</p>
         <p>
           Questions or issues — reach me at
-          <a
-            href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#111;&#114;&#101;&#110;&#46;&#109;&#97;&#120;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
-          >
-            &#109;&#111;&#114;&#101;&#110;&#46;&#109;&#97;&#120;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a
-          >.
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#111;&#114;&#101;&#110;&#46;&#109;&#97;&#120;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">
+            &#109;&#111;&#114;&#101;&#110;&#46;&#109;&#97;&#120;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>.
         </p>
-        <p style="margin-top: 16px">
-          <a
-            href="/"
-            style="
-              font-family: var(--font-mono);
-              font-size: 12px;
-              color: var(--muted);
-              text-decoration: none;
-              letter-spacing: 0.03em;
-            "
-          >
-            ← back to macks.duckdns.org
-          </a>
-        </p>
+
       </section>
 
       <footer>
-        <span>macks.duckdns.org/server</span>
+        <span>macks.duckdns.org</span>
         <span>Sweden · Fabric · BlueMap</span>
       </footer>
     </div>
@@ -763,43 +553,38 @@
     <script>
       /* ── Dark mode ── */
       const btn = document.getElementById("theme-toggle");
-      if (localStorage.getItem("theme") === "dark")
-        document.body.classList.add("dark");
+      if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark");
       btn.addEventListener("click", () => {
         document.body.classList.toggle("dark");
-        localStorage.setItem(
-          "theme",
-          document.body.classList.contains("dark") ? "dark" : "light",
-        );
+        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
       });
 
       /* ── Map expand / collapse ── */
-      const mapSection = document.getElementById("map");
-      const mapWrapper = document.getElementById("map-wrapper");
-      const expandBtn = document.getElementById("expand-btn");
-      const closeBtn = document.getElementById("close-btn");
-      const preview = document.getElementById("map-preview");
+      const mapSection  = document.getElementById("map");
+      const mapWrapper  = document.getElementById("map-wrapper");
+      const expandBtn   = document.getElementById("expand-btn");
+      const closeBtn    = document.getElementById("close-btn");
+      const preview     = document.getElementById("map-preview");
 
       const placeholder = document.createElement("div");
       placeholder.style.cssText = "height:200px;";
 
+      // Snapshot preview styles before anything touches them
+      const previewOriginalStyle = preview.style.cssText;
+
       let iframe = null;
 
       function expandMap() {
-        // Inject iframe now (first time) or just show it again
         if (!iframe) {
           iframe = document.createElement("iframe");
           iframe.src = "https://map.macks.duckdns.org";
           iframe.title = "BlueMap — Live server map";
           iframe.setAttribute("allowfullscreen", "");
-          iframe.style.cssText =
-            "width:100%;height:100%;border:none;display:block;";
+          iframe.style.cssText = "width:100%;height:100%;border:none;display:block;";
           mapWrapper.insertBefore(iframe, mapWrapper.firstChild);
         }
-        // Hide the preview overlay
         preview.style.display = "none";
 
-        // Teleport to body
         mapSection.insertBefore(placeholder, mapWrapper);
         document.body.appendChild(mapWrapper);
         mapWrapper.classList.add("map-fullscreen");
@@ -815,61 +600,42 @@
         expandBtn.style.display = "";
         closeBtn.classList.remove("visible");
         document.body.style.overflow = "";
-        // Destroy iframe fully so it reloads cleanly next expand
-        if (iframe) {
-          iframe.remove();
-          iframe = null;
-        }
-        preview.style.display = "";
+        if (iframe) { iframe.remove(); iframe = null; }
+        // Fully restore preview to its original state
+        preview.style.cssText = previewOriginalStyle;
       }
 
       expandBtn.addEventListener("click", expandMap);
       closeBtn.addEventListener("click", collapseMap);
       preview.addEventListener("click", expandMap);
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") collapseMap();
-      });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") collapseMap(); });
 
       /* ── Copy IP ── */
       document.getElementById("copy-ip").addEventListener("click", function () {
         navigator.clipboard.writeText("macks.duckdns.org").then(() => {
           this.textContent = "copied!";
           this.classList.add("copied");
-          setTimeout(() => {
-            this.textContent = "copy";
-            this.classList.remove("copied");
-          }, 1800);
+          setTimeout(() => { this.textContent = "copy"; this.classList.remove("copied"); }, 1800);
         });
       });
 
       /* ── FAQ accordion ── */
-      document.querySelectorAll(".faq-q").forEach((q) => {
+      document.querySelectorAll(".faq-q").forEach(q => {
         q.addEventListener("click", () => {
           const item = q.parentElement;
           const wasOpen = item.classList.contains("open");
-          document
-            .querySelectorAll(".faq-item")
-            .forEach((i) => i.classList.remove("open"));
+          document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("open"));
           if (!wasOpen) item.classList.add("open");
         });
       });
 
-      /* ── Server status via SLP proxy ── */
-      /*
-    This fetches from a small local proxy you run alongside your server.
-    See the instructions below for the Node.js proxy script.
-    If the proxy isn't up, the status just shows "—".
-  */
+      /* ── Server status via mcsrvstat.us public API (no proxy needed) ── */
       async function fetchStatus() {
         const dot = document.getElementById("status-dot");
         const txt = document.getElementById("status-text");
         const cnt = document.getElementById("player-count");
         try {
-          // Proxy should run at port 3000 on the same machine as your server
-          // Replace with your actual proxy URL if different
-          const res = await fetch("https://macks.duckdns.org:25565/status", {
-            signal: AbortSignal.timeout(5000),
-          });
+          const res  = await fetch("https://api.mcsrvstat.us/3/macks.duckdns.org", { signal: AbortSignal.timeout(8000) });
           const data = await res.json();
           if (data.online) {
             dot.classList.add("online");
